@@ -24,7 +24,7 @@ If the task is still running.
 source
 https://support.plesk.com/hc/en-us/articles/12377460333463--How-to-cancel-a-stuck-task-in-Plesk
 
-=== Plesk Module Location ===
+=== Plesk Module/Extension Location ===
 
 All the installed extensions can be found under this directory
   /usr/local/psa/var/modules
