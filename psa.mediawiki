@@ -1,7 +1,15 @@
-__FORCETOC__
+=== Firefox keyboard tips ===
 
-
-##PSA mail
-##PSA domain
-##psa test
-##psa tttt
+  '             find as you type link
+  /             find as you type text
+  C-h           history
+  C-g           find again
+  C-S-g         find again backwards
+  C-TAB         next tab
+  C-PGDN        next tab
+  C-PGUP        prev tab
+  A-Enter       open address in new tab
+  C-0           restore text size
+  A-d           select location bar
+  C-l           select location bar
+  C-1           select tab 1 (to 9)
