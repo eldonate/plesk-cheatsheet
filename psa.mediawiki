@@ -1,25 +1,25 @@
 === Stuck process kill ===
-plesk db "SELECT id,type,status,finishTime FROM longtasks WHERE status <> 'done'"
-+—-+—————————–+———+———————+
-| id | type                    	| status  | finishTime      	|
-+—-+—————————–+———+———————+
-| 56 | ext-wp-toolkit-taskinstall | started | 0000-00-00 00:00:00 |
-+—-+—————————–+———+———————+
+  plesk db "SELECT id,type,status,finishTime FROM longtasks WHERE status <> 'done'"
+  +—-+—————————–+———+———————+
+  | id | type                    	| status  | finishTime      	|
+  +—-+—————————–+———+———————+
+  | 56 | ext-wp-toolkit-taskinstall | started | 0000-00-00 00:00:00 |
+  +—-+—————————–+———+———————+
 
 delete longtasks
-# plesk db "DELETE FROM longtasks WHERE id=56"
+  # plesk db "DELETE FROM longtasks WHERE id=56"
 
 delete longtasks_parameters
-# plesk db "DELETE FROM longtaskparams WHERE task_id=56"
+  # plesk db "DELETE FROM longtaskparams WHERE task_id=56"
 
 kill executor.
-# pkill task-async-executor
+  # pkill task-async-executor
 
 If the task is still running.
-# service sw-engine stop
-# rm -rf /var/lock/lmlib/container_locks
-# rm -f /usr/local/psa/var/cache/*
-# service sw-engine start
+  # service sw-engine stop
+  # rm -rf /var/lock/lmlib/container_locks
+  # rm -f /usr/local/psa/var/cache/*
+  # service sw-engine start
 
 source
 https://support.plesk.com/hc/en-us/articles/12377460333463--How-to-cancel-a-stuck-task-in-Plesk
@@ -27,10 +27,10 @@ https://support.plesk.com/hc/en-us/articles/12377460333463--How-to-cancel-a-stuc
 === Plesk Module Location ===
 
 All the installed extensions can be found under this directory
-/usr/local/psa/var/modules
+  /usr/local/psa/var/modules
 
 === Add website to wordpress toolkit manually ===
-plesk ext wp-toolkit --register -main-domain-id 2145 -path /httpdocs
+  plesk ext wp-toolkit --register -main-domain-id 2145 -path /httpdocs
 
 Note that backslash is important
 
