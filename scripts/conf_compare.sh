@@ -1,5 +1,18 @@
 #!/bin/bash
 
+####### scope #######
+#this script is running a mysql query using plesk db to find which domains are using a specified php-fpm version and then checks under the /opt/plesk/php/php_version/etc/php-fpm.d/ in order to see if the corresponding conf files exists or not.
+#script will return all the domains for which php conf files are not found.
+
+####### usage #######
+# running this script is possbile with the following arguments
+#  php_version (ex ./conf_compare.sh 8.1) this will check only for the specified php verison
+# all (ex ./conf_compare.sh all) this will look into /opt/plesk/php/ and run the script for each php verison found there
+# f (ex ./conf_compare.sh all f or ex ./conf_compare.sh 8.1 f) this will also run plesk repair web -y for each domain found.
+#############
+
+# checked for Plesk Obsidian
+
 # this checks all php versions
 process_php_version() {
     local PHP_VERSION=$1
