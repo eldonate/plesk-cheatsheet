@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# Check if the argument is provided
-if [ -z "$1" ]; then
-    echo "Usage: $0 php_version"
+# Check if the correct number of arguments are provided
+if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
+    echo "Usage: $0 php_version [f]"
     exit 1
 fi
 
 # Assign the first argument to a variable
 PHP_VERSION=$1
+
+# Optional second argument
+FORCE_REPAIR=$2
 
 # Convert the version number to the format used in the database query
 PHP_HANDLER_ID="plesk-php${PHP_VERSION//./}-fpm"
@@ -28,6 +31,10 @@ echo "$DOM_IDS" | grep -oE '[0-9]+' | while read -r dom_id; do
         CONF_FILE="$CONF_DIR/${DOMAIN_NAME}.conf"
         if [[ ! -f "$CONF_FILE" ]]; then
             echo "$DOMAIN_NAME"
+            # If the "f" argument is provided, run the repair command
+            if [[ "$FORCE_REPAIR" == "f" ]]; then
+                plesk repair web "$DOMAIN_NAME" -y
+            fi
         fi
     fi
 done
