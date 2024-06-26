@@ -25,7 +25,7 @@ process_php_version() {
     # looping to domains table using dom_ids to get domains that using the handler
     echo "$DOM_IDS" | grep -oE '[0-9]+' | while read -r dom_id; do
         if [[ -n "$dom_id" ]]; then
-            DOMAIN_NAME=$(plesk db "SELECT name FROM domains WHERE id = $dom_id;" | sed -n '2p' | tr -d ' ' | sed 's/|//g')
+            DOMAIN_NAME=$(plesk db "SELECT name FROM domains WHERE id = $dom_id;" | sed -n '4p' | tr -d ' ' | sed 's/|//g')
 
             # checking the existance of conf file
             CONF_FILE="$CONF_DIR/${DOMAIN_NAME}.conf"
