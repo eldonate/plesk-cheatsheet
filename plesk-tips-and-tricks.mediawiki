@@ -36,3 +36,14 @@ Note that backslash is important
 
 === DDOS mitigation ===
 https://support.plesk.com/hc/en-us/articles/12377282594199-How-to-diagnose-a-DoS-DDoS-attack-and-find-websites-under-attack-on-a-Plesk-server
+
+==SPAM mails==
+===Search for content in every domain's log file===
+
+Lets say you are looking for a contact form that is getting a lot of spam.
+Navigate to /var/www/vhosts/subscription/logs/
+and run the following
+
+find . -type f -name 'access_ssl_log' | xargs -I {} sh -c "echo 'File: {}'; grep 'POST' {} | grep -c 'contact'"
+
+This will grep POST and contact that will usually give you some hints.
