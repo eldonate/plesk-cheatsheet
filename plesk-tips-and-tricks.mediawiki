@@ -39,15 +39,15 @@ https://support.plesk.com/hc/en-us/articles/12377282594199-How-to-diagnose-a-DoS
 
 ==EMAILS==
 ===Check for sieves===
-#find . -type f -name '*.sieve' -exec echo {} \; -exec cat {} \;
+<code>find . -type f -name '*.sieve' -exec echo {} \; -exec cat {} \;</code>
 ===Find all IPs logged in the server
 
-#zgrep --no-filename "login" /var/log/maillog* | grep "email@domain.com" | perl -lne 'print "$1 $2 $3" if /^(\S+\s+\S+\s+\S+).*rip=(\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b)/' | awk '{print $NF}' | sort | uniq > unique_ip_addresses.txt
+<code>zgrep --no-filename "login" /var/log/maillog* | grep "email@domain.com" | perl -lne 'print "$1 $2 $3" if /^(\S+\s+\S+\s+\S+).*rip=(\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b)/' | awk '{print $NF}' | sort | uniq > unique_ip_addresses.txt</code>
 
 
 ===Find email password===
-Linux
-#plesk sbin mail_auth_view | grep
+Linux </br>
+<code>plesk sbin mail_auth_view | grep</code>
 
 Windows
 
@@ -60,6 +60,6 @@ Lets say you are looking for a contact form that is getting a lot of spam.
 Navigate to /var/www/vhosts/subscription/logs/
 and run the following
 
-#find . -type f -name 'access_ssl_log' | xargs -I {} sh -c "echo 'File: {}'; grep 'POST' {} | grep -c 'contact'"
+<code>find . -type f -name 'access_ssl_log' | xargs -I {} sh -c "echo 'File: {}'; grep 'POST' {} | grep -c 'contact'"</code>
 
 This will grep POST and contact that will usually give you some hints.
