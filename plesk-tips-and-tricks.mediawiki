@@ -40,7 +40,7 @@ https://support.plesk.com/hc/en-us/articles/12377282594199-How-to-diagnose-a-DoS
 ==EMAILS==
 ===Check for sieves===
 <code>find . -type f -name '*.sieve' -exec echo {} \; -exec cat {} \;</code>
-===Find all IPs logged in the server
+===Find all IPs logged in the server===
 
 <code>zgrep --no-filename "login" /var/log/maillog* | grep "email@domain.com" | perl -lne 'print "$1 $2 $3" if /^(\S+\s+\S+\s+\S+).*rip=(\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b)/' | awk '{print $NF}' | sort | uniq > unique_ip_addresses.txt</code>
 
