@@ -37,7 +37,7 @@ Note that backslash is important
 === DDOS mitigation ===
 https://support.plesk.com/hc/en-us/articles/12377282594199-How-to-diagnose-a-DoS-DDoS-attack-and-find-websites-under-attack-on-a-Plesk-server
 
-==SPAM mails==
+==EMAILS==
 ===Search for content in every domain's log file===
 
 Lets say you are looking for a contact form that is getting a lot of spam.
