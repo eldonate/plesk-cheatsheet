@@ -66,3 +66,9 @@ and run the following
   find . -type f -name 'access_ssl_log' | xargs -I {} sh -c "echo 'File: {}'; grep 'POST' {} | grep -c 'contact'"
 
 This will grep POST and contact that will usually give you some hints.
+
+==Varius Usefull==
+===mass update php settings===
+
+  ps -f -U username |sort -k10|sed 's/^.* //'|uniq|while read site; do plesk bin site --update-php-settings $site -settings php_settings_ino.ini; done
+php_settings_ino.ini contains the settings you want to add
