@@ -38,6 +38,9 @@ Note that backslash is important
 https://support.plesk.com/hc/en-us/articles/12377282594199-How-to-diagnose-a-DoS-DDoS-attack-and-find-websites-under-attack-on-a-Plesk-server
 
 ==EMAILS==
+===Roundcube config files location===
+  /etc/psa-webmail/roundcube
+
 ===Check for sieves===
   find . -type f -name '*.sieve' -exec echo {} \; -exec cat {} \;
 ===Find all IPs logged in the server===
