@@ -71,4 +71,4 @@ This will grep POST and contact that will usually give you some hints.
 ===mass update php settings===
 
   ps -f -U username |sort -k10|sed 's/^.* //'|uniq|while read site; do plesk bin site --update-php-settings $site -settings php_settings_ino.ini; done
-php_settings_ino.ini contains the settings you want to add
+php_settings_ino.ini contains the settings you want to add ex pm = ondemand
